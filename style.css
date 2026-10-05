@@ -1,0 +1,68 @@
+:root{--bg:#07020a;--wine:#4a0d1f;--red:#a3122f;--plum:#2a0b3a;--glow:#ff5a7a;--tx:#fff5f6;
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:var(--bg);color:var(--tx);font-family:var(--sans);overflow-x:hidden}
+body{background:radial-gradient(120% 80% at 50% 0%,var(--plum),transparent 60%),radial-gradient(100% 70% at 50% 110%,var(--wine),transparent 65%),var(--bg)}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.scene{position:fixed;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;
+padding:max(24px,env(safe-area-inset-top)) 24px max(24px,env(safe-area-inset-bottom));text-align:center;
+opacity:0;visibility:hidden;transition:opacity 1.2s,visibility 1.2s,filter 1.2s;filter:blur(12px);overflow-y:auto}
+.scene.on{opacity:1;visibility:visible;filter:none}
+h1,h2,.big{font-family:var(--serif);font-weight:400;line-height:1.1}
+h1{font-size:clamp(2.4rem,10vw,5rem)}h2{font-size:clamp(1.8rem,7vw,3rem)}
+p,.line{font-family:var(--serif);font-size:clamp(1.25rem,5vw,1.8rem);line-height:1.5;max-width:30rem}
+.line{opacity:0;filter:blur(10px);transform:translateY(8px);transition:all 1.4s;margin:.5em 0}
+.line.in{opacity:1;filter:none;transform:none}
+.sub{font-family:var(--sans);font-weight:300;opacity:.7;font-size:1rem;margin-top:.6rem}
+.btn{margin-top:2rem;min-height:54px;padding:0 2rem;border-radius:99px;border:1px solid rgba(255,140,160,.5);
+background:rgba(255,255,255,.06);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--tx);
+font:400 1rem var(--sans);letter-spacing:.12em;cursor:pointer;opacity:0;pointer-events:none;transition:opacity 1.2s,box-shadow .3s}
+.btn.in{opacity:1;pointer-events:auto;animation:pulse 2.4s infinite}
+.btn:active{transform:scale(.97)}
+@keyframes pulse{50%{box-shadow:0 0 28px rgba(255,90,122,.55)}}
+.glass{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-radius:22px}
+/* quiz */
+#qbox{width:100%;max-width:30rem;padding:26px 20px}
+#qbox h2{font-size:clamp(1.5rem,6vw,2.2rem);margin-bottom:1.2rem}
+.opt{display:block;width:100%;min-height:52px;margin:10px 0;border-radius:14px;border:1px solid rgba(255,255,255,.18);
+background:rgba(255,255,255,.05);color:var(--tx);font:400 1.05rem var(--sans);padding:12px;cursor:pointer;transition:background .3s}
+.opt.ok{background:rgba(255,90,122,.35);border-color:var(--glow)}.opt.no{opacity:.4}
+#fb{min-height:2.2em;margin-top:.6rem;font-family:var(--serif);font-size:1.3rem;color:#ffb3c1}
+.dots{font-size:.85rem;opacity:.6;margin-bottom:1rem}
+/* love */
+#lovebig{font-family:var(--serif);font-size:clamp(3rem,16vw,8rem);opacity:0;letter-spacing:.04em;text-shadow:0 0 40px var(--glow),0 0 90px var(--red)}
+#lovebig.in{animation:beat 1.3s infinite,zoom 14s linear forwards;opacity:1}
+@keyframes beat{0%,100%{transform:scale(1)}14%{transform:scale(1.08)}28%{transform:scale(1)}42%{transform:scale(1.05)}}
+@keyframes zoom{from{filter:blur(14px)}to{filter:blur(0)}}
+.burst{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(circle,rgba(255,90,122,.55),transparent 60%);opacity:0}
+.burst.go{animation:burst 2.5s}@keyframes burst{30%{opacity:1}100%{opacity:.25}}
+/* moments */
+#s4{justify-content:flex-start;padding-top:12vh;padding-bottom:20vh}
+.mom{width:100%;max-width:26rem;margin:16vh 0;opacity:0;transition:all 1.6s cubic-bezier(.2,.7,.2,1)}
+.mom.a1{transform:translateY(60px)}.mom.a2{transform:translateX(-60px) rotate(-3deg)}
+.mom.a3{transform:scale(.85);filter:blur(14px)}.mom.a4{transform:scale(1.25);filter:blur(22px)}
+.mom.seen{opacity:1;transform:none;filter:none}
+.tag{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:#ffb3c1;margin-bottom:.8rem}
+.frame{position:relative;padding:10px;border-radius:20px;background:linear-gradient(135deg,rgba(255,140,160,.5),rgba(120,40,160,.4));
+box-shadow:0 0 50px rgba(255,90,122,.3);cursor:zoom-in}
+.mom.a4 .frame{box-shadow:0 0 90px rgba(255,90,122,.65);animation:pulse 3s infinite}
+.frame img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px;background:#1a0a1f;transition:transform 8s}
+.mom.seen .frame img{transform:scale(1.06)}
+.cap{font-family:var(--serif);font-size:1.3rem;line-height:1.4;margin-top:1rem}
+#lb{position:fixed;inset:0;z-index:20;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:16px}
+#lb.on{display:flex}#lb img{max-width:100%;max-height:90vh;border-radius:12px}
+/* party */
+#cake{width:150px;margin:1rem auto}
+.bal{position:fixed;bottom:-120px;width:46px;height:58px;border-radius:50% 50% 48% 48%;opacity:.85;animation:rise linear forwards;z-index:1}
+@keyframes rise{to{transform:translateY(-120vh)}}
+.love2{font-family:var(--serif);font-size:clamp(2.5rem,13vw,6rem);text-shadow:0 0 40px var(--glow);margin-top:1.2rem}
+.heart{font-size:2rem;color:var(--glow);animation:beat 1.3s infinite;margin-top:1rem}
+#secret{position:fixed;inset:0;z-index:30;background:#000;display:none;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center}
+#secret.on{display:flex}
+/* music */
+#music{position:fixed;top:max(12px,env(safe-area-inset-top));right:12px;z-index:25;display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:99px;
+border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--tx);font:300 .8rem var(--sans);cursor:pointer;min-height:40px}
+.eq{display:flex;gap:2px;align-items:flex-end;height:14px}.eq i{width:3px;height:4px;background:var(--glow);border-radius:2px}
+.playing .eq i{animation:eq .8s infinite alternate}.eq i:nth-child(2){animation-delay:.2s}.eq i:nth-child(3){animation-delay:.4s}
+@keyframes eq{to{height:14px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}

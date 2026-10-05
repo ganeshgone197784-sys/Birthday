@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A surprise for you</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="burst" id="burst"></div>
+
+<!-- MUSIC: put your legal audio file next to this HTML and name it music.mp3 -->
+<button id="music" aria-label="Play or pause music"><span class="eq"><i></i><i></i><i></i></span><span>♪ music</span></button>
+<audio id="aud" src="music.mp3" loop preload="none"></audio>
+
+<section class="scene on" id="s0"><div id="intro"></div><button class="btn" id="b0">OPEN YOUR SURPRISE ❤️</button></section>
+
+<section class="scene" id="s1"><div id="bday"></div><button class="btn" id="b1">BEGIN</button></section>
+
+<section class="scene" id="s2"><div id="qbox" class="glass"><div class="dots" id="qd"></div><h2 id="qq"></h2><div id="qo"></div><div id="fb"></div></div></section>
+
+<section class="scene" id="s2b"><div id="wait"></div><button class="btn" id="b2b">ONE MORE THING →</button></section>
+
+<section class="scene" id="s3"><div id="msg"></div><div id="lovebig">I LOVE YOU ❤️</div><button class="btn" id="b3">SEE OUR MOMENTS →</button></section>
+
+<section class="scene" id="s4">
+<h2>A Few Moments...</h2><p class="sub">That became memories worth keeping forever.</p>
+<!-- MOMENT 1 PHOTO (embedded; replace the src to change) -->
+<div class="mom a1"><div class="tag">It all started with a moment...</div><div class="frame"><img style="object-position:50% 40%" src="a.jpg" alt="Moment 1"></div><div class="cap" id="c1"></div></div>
+<!-- MOMENT 2 PHOTO -->
+<div class="mom a2"><div class="tag">And then came more memories...</div><div class="frame"><img style="object-position:50% 50%" src="b.jpg" alt="Moment 2"></div><div class="cap" id="c2"></div></div>
+<!-- MOMENT 3 PHOTO -->
+<div class="mom a4"><div class="tag">And this one... is special.</div><div class="frame"><img style="aspect-ratio:auto" src="c.jpg" alt="Moment 3"></div><div class="cap" id="c3"></div></div>
+<!-- MOMENT 4 PHOTO -->
+<div class="mom a4"><div class="tag">And this one... is special.</div><div class="frame"><img src="MOMENT_4.jpg" alt="Moment 4"></div><div class="cap" id="c4"></div></div>
+<button class="btn in" id="b4" style="animation:none">CONTINUE</button>
+</section>
+
+<section class="scene" id="s5"><div id="build"></div></section>
+
+<section class="scene" id="s6">
+<svg id="cake" viewBox="0 0 150 130"><g fill="none" stroke="#ffb3c1" stroke-width="2">
+<rect x="20" y="70" width="110" height="50" rx="8" fill="#4a0d1f"/><rect x="35" y="45" width="80" height="28" rx="6" fill="#a3122f"/>
+<path d="M75 45V28M55 45V32M95 45V32"/></g>
+<g fill="#ffd27a"><ellipse cx="75" cy="22" rx="4" ry="8"><animate attributeName="ry" values="8;10;8" dur=".6s" repeatCount="indefinite"/></ellipse>
+<ellipse cx="55" cy="26" rx="3" ry="6"/><ellipse cx="95" cy="26" rx="3" ry="6"/></g></svg>
+<h1 id="hb2"></h1><button class="btn" id="b6">NEXT</button></section>
+
+<section class="scene" id="s7"><div id="fin"></div><div class="love2" id="l2" style="opacity:0;transition:opacity 2s">I LOVE YOU ❤️</div><div class="heart">❤</div>
+<button class="btn" id="b7">Wait... there's something else 👀</button></section>
+
+<div id="secret"><div id="sec"></div></div>
+<div id="lb"><img alt=""></div>
+
+<script src="script.js"></script>
+</body>
+</html>
